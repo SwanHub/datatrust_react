@@ -1,0 +1,36 @@
+body { 
+    font-family: 'Georgia', serif;
+    margin: 0;
+}
+
+.app {
+    height: 100vh;
+}
+
+button {
+    padding: 8px 20px 8px;
+    font-size: 14px;
+    color: rgb(50,50,50);
+    border-radius: 17px;
+    border:none;
+    background-color: rgba(66,133,244,0.5);
+    margin: 3px;
+    cursor: pointer;
+    font-family: 'Georgia', sans-serif;
+  }
+  button:hover {
+    color:rgb(0,0,0);
+    background-color: rgb(66,133,244);
+    -webkit-transition: background-color 250ms linear;
+    -ms-transition: background-color 250ms linear;
+    transition: background-color 250ms linear;
+  }
+  button:focus {
+    outline:0;
+  }
+  input {
+    padding: 8px 16px 8px;
+    border:none;
+    margin: 5px;
+    font-family: 'Georgia', sans-serif;
+  }
