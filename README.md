@@ -1,68 +1,18 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# DataTrust 
 
-## Available Scripts
+## Our Focus
+- DataTrust is a central source of information on privacy policies. Privacy Policies, in their current form, are unhelpful at best. DataTrust will provide a website and chrome extension to help better educated users on how companies use their data. 
 
-In the project directory, you can run:
+## Reasons We Need This
+- When looking at a policy (if I do actually look), I scan without context. I don't know how any particular website's policices relate to the policy ecosystem as a whole. By getting all policies in the same place, we can better judge an individual policy within the context of the whole. I.e. "Huh, they collect 8x as much data as the average website - maybe we should steer clear and/or tread with caution." 
 
-### `npm start`
+- No two policies comply to the same standard notation (for example, Facebook's is an entire website unto itself, whereas your local real estate agency's exists in plain text on a single page). We break each policy up into the 5 standard principles laid out by the Federal Trade Commission 25 years ago, called the Fair Information Practice Principles. Those principles include Notification, Access, Choice, Security and Enforcement. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+DataTrust aims to solve both of these issues. 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Website 
+-  https://datatrust-a2ff3.firebaseapp.com
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Languages 
+- `Rails` - Backend (Heroku)
+- `React.js` -Frontend (Firebase)
