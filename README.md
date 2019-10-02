@@ -10,8 +10,6 @@
 
 - No two policies comply to the same standard notation (for example, Facebook's is an entire website unto itself, whereas your local real estate agency's exists in plain text on a single page). We break each policy up into the 5 standard principles laid out by the Federal Trade Commission 25 years ago, called the Fair Information Practice Principles. Those principles include Notification, Access, Choice, Security and Enforcement. 
 
-DataTrust aims to solve both of these issues. 
-
 ## Website 
 -  https://datatrust-a2ff3.firebaseapp.com
 
