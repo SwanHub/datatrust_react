@@ -13,11 +13,12 @@ export default function Search(props) {
                     value={props.searchInput} 
                     onChange={props.handleInputChange}
                     onKeyDown={handleKeyDown}
+                    autoComplete="off"
                     id="main-searchbar"
                     />
                     <p className="search-subtext">...by company or domain</p>
             <a href="https://chrome.google.com/webstore/category/extensions"
-               target="_blank" className="add-extension">Get Extension</a>
+               target="_blank" className="add-extension">Get Extension</a><br />
             <button onClick={() => props.browsePolicies()}>Browse Policies</button>
         </div>
     )

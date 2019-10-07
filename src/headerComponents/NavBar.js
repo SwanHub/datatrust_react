@@ -10,7 +10,7 @@ export default function NavBar(props) {
             {props.loggedIn 
                     ? <LogOut logOut={props.logOut} 
                               showMyPolicies={props.showMyPolicies}
-                              newPolicy={props.newPolicy}
+                              handleToggleModal={props.handleToggleModal}
                               /> 
                     : <LogIn logIn={props.logIn}/>
                 }

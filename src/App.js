@@ -4,23 +4,32 @@ import './css/App.css';
 import './css/Header.css';
 import './css/Footer.css';
 import './css/Main.css';
+import './css/Modal.css';
 import NavBar from './headerComponents/NavBar'
 import Footer from './footerComponents/Footer'
 import About from './footerComponents/About'
 import Privacy from './footerComponents/Privacy'
 import Support from './footerComponents/Support'
 import Main from './mainComponents/Main'
+import CreatePolicyContainer from './mainComponents/createPolicy/CreatePolicyContainer'
 
 class App extends Component {
   
   state = {
       websites: [],
-      loggedIn: false,
+      loggedIn: !!localStorage.jwt,
       currentWebsite: {}, 
       searchInput: '',
       view: 'search',
-      username: '',
-      userId: 0
+      username: localStorage.username,
+      userId: localStorage.userId,
+      modalActive: false
+  }
+
+  handleToggleModal = () => {
+      this.setState({
+          modalActive: !this.state.modalActive
+      })
   }
 
   handleInputChange = (event) => {
@@ -33,6 +42,8 @@ class App extends Component {
     const foundWebsite = this.state.websites.find(w => {
       if (!!w.website.company_name){
         return w.website.company_name.toLowerCase().includes(this.state.searchInput.toLowerCase())
+      } else {
+        return null 
       }
     })
 
@@ -47,16 +58,10 @@ class App extends Component {
       view: 'myPolicies'
     })
   } 
-  
-  newPolicy = () => {
-    this.setState({
-      view: 'newPolicy'
-    })
-  } 
 
   myPoliciesList = () => {
     return this.state.websites.filter(website => {
-      return website.website.user_id == this.state.userId
+      return website.website.user_id === this.state.userId
     })
   }
 
@@ -86,6 +91,8 @@ class App extends Component {
 
   logIn = (login) => {
       localStorage.setItem("jwt", login.jwt)
+      localStorage.setItem("username", login.user.username)
+      localStorage.setItem("userId", login.user.id)
       this.setState({
           loggedIn: true,
           username: login.user.username,
@@ -101,6 +108,8 @@ class App extends Component {
 
   logOut = () => {
     localStorage.removeItem("jwt")
+    localStorage.removeItem("username")
+    localStorage.removeItem("userId")
     this.setState({
       loggedIn: false,
       username: '',
@@ -119,21 +128,27 @@ class App extends Component {
                       showMyPolicies={this.showMyPolicies}
                       newPolicy={this.newPolicy}
                       resetMain={this.resetMain}
+                      handleToggleModal={this.handleToggleModal}
                       />
-                <Route exact path="/" render={() => 
-                        <div className="main-content">
-                          <Main 
-                            website={this.state.currentWebsite} 
-                            handleInputChange={this.handleInputChange}
-                            view={this.state.view}
-                            searchInput={this.state.searchInput} 
-                            handleSearch={this.handleSearch}
-                            myPoliciesList={this.myPoliciesList}  
-                            showPolicy={this.showPolicy}  
-                            websites={this.state.websites} 
-                            browsePolicies={this.browsePolicies}                        
-                          />
+                <Route exact path="/" render={(...props) => 
+                      <>
+                        <div className={this.state.modalActive ? "modal show-modal" : "modal"}>
+                          <CreatePolicyContainer handleToggleModal={this.handleToggleModal} modalActive={this.state.modalActive}/>
                         </div>
+                          <div className={!this.state.modalActive ? "main-content show" : "hide"}>
+                            <Main 
+                              website={this.state.currentWebsite} 
+                              handleInputChange={this.handleInputChange}
+                              view={this.state.view}
+                              searchInput={this.state.searchInput} 
+                              handleSearch={this.handleSearch}
+                              myPoliciesList={this.myPoliciesList}  
+                              showPolicy={this.showPolicy}  
+                              websites={this.state.websites} 
+                              browsePolicies={this.browsePolicies}                    
+                            />
+                          </div>
+                      </>
                       }
                     /> 
                 <Route exact path="/about" component={About}/>

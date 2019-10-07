@@ -10,13 +10,13 @@ export default function LogOut(props) {
     }   
 
     const handleNewPolicyClick = () => {
-        props.newPolicy()
+        props.handleToggleModal()
     }
 
     return (
         <div>
-            <button onClick={handleNewPolicyClick}>Create Policy</button>
-            <button onClick={handleUserPoliciesClick}>My Policies</button>
+            <button className="yellow-back" onClick={handleNewPolicyClick}>Create Policy</button>
+            <button className="yellow-back" onClick={handleUserPoliciesClick}>My Policies</button>
             <button onClick={handleClick}>LogOut</button>
         </div>
     )

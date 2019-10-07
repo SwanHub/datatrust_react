@@ -2,7 +2,6 @@ import React from 'react'
 import Search from './Search'
 import PoliciesContainer from './policies/PoliciesContainer'
 import MyPoliciesContainer from './myPolicies/MyPoliciesContainer'
-import CreatePolicyCard from './createPolicy/CreatePolicyCard'
 import AllPolicies from './AllPolicies'
 
 export default function Main(props) {
@@ -17,8 +16,6 @@ export default function Main(props) {
           return <PoliciesContainer website={props.website}/>;
         case 'myPolicies':
           return  <MyPoliciesContainer myPoliciesList={props.myPoliciesList}/>;
-        case 'newPolicy':
-          return  <CreatePolicyCard />;
         case 'browse':
           return  <AllPolicies websites={props.websites} showPolicy={props.showPolicy}/>;
         default:
