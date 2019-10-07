@@ -10,8 +10,34 @@ export default class CreatePolicyContainer extends Component {
 
     state = {
         modalContent: 'core',
-        newPolicyDomain: '',
-        verifiedResult: ''
+        domain: '',
+        verifiedResult: '',
+            company_name: '',
+            cookies: null,
+            cookies_required: null,
+            collect_user_data: null,
+            pp_url: '',
+            use_for_site_improvement: null,
+            use_for_data_analysis: null,
+            use_for_profit: null,
+            collect_by_asking: null,
+            collect_by_partners: null,
+            collect_by_tracking: null,
+            update_data: null,
+            delete_data: null,
+            opt_in: null,
+            opt_out: null,
+            can_view_all_data: null,
+            can_dispute_accuracy: null,
+            efficient_dispute_process: null,
+            dispute_policy: '',
+            encrypted: null,
+            quality_measures: '',
+            additional_security: '',
+            self_regulation: null,
+            privacy_seal: null,
+            privacy_seal_vendor: '',
+            user_id: localStorage.userId
     }
 
     handleCloseModal = () => {
@@ -25,9 +51,15 @@ export default class CreatePolicyContainer extends Component {
     }
 
     handleVerification = () => {
-        fetch(`https://cors-anywhere.herokuapp.com/https://api.securitytrails.com/v1/domain/${this.state.newPolicyDomain}?apikey=HP9up5LK5YT0tNJWg1Fd0KRRCrWDRNv1`)
+        fetch(`https://cors-anywhere.herokuapp.com/https://api.securitytrails.com/v1/domain/${this.state.domain}?apikey=HP9up5LK5YT0tNJWg1Fd0KRRCrWDRNv1`)
             .then(r => r.json())
             .then(r => this.displayVerificationResults(r))
+    }
+
+    handleInputChange = (field, value) => {
+        this.setState({
+            [field]: value
+        })
     }
 
     displayVerificationResults = (response) => {
@@ -44,19 +76,25 @@ export default class CreatePolicyContainer extends Component {
 
     handleDomainInputChange = (event) => {
         this.setState({
-            newPolicyDomain: event.target.value
+            domain: event.target.value
         })
     }
-    
-    // displayVerificationResult(json){
-    //     if (!!json.hostname){
-    //         verifyResult.innerText = "Verified"
-    //         verifyResult.className = 'yellow_back'
-    //     } else {
-    //         verifyResult.innerText = "Not Verified"
-    //         verifyResult.className = 'alert_back'
-    //     }
-    // }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        const postObj = {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${localStorage.jwt}`,
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(this.state)
+                }
+
+        fetch(`http://localhost:3000/websites`, postObj)
+            .then(r => r.json())
+            .then(console.log)
+    }
 
     render() {
         return (
@@ -64,12 +102,12 @@ export default class CreatePolicyContainer extends Component {
                 <div className="modal-content">
                 <span className="close-button" onClick={this.handleCloseModal}>&times;</span>
                 <h3>Verify domain</h3>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <div className="new-domain-container">
-                    <input id="new-domain" 
+                    <input id="domain" 
                             autoComplete="off" 
                             type="text" 
-                            value={this.state.newPolicyDomain} 
+                            value={this.state.domain} 
                             onChange={this.handleDomainInputChange}
                             name="domain" />
                     <svg onClick={this.handleVerification} id="verify-button" viewBox="0 0 442.533 442.533">
@@ -88,12 +126,12 @@ export default class CreatePolicyContainer extends Component {
                             : null}
                     <div id="multi-form">
 
-                    <CoreData modalContent={this.state.modalContent}/> 
-                    <NoticeData modalContent={this.state.modalContent}/>
-                    <ChoiceData modalContent={this.state.modalContent}/>
-                    <AccessData modalContent={this.state.modalContent}/>
-                    <SecurityData modalContent={this.state.modalContent}/>
-                    <EnforcementData modalContent={this.state.modalContent}/>
+                    <CoreData modalContent={this.state.modalContent} formState={this.state}handleInputChange={this.handleInputChange}/> 
+                    <NoticeData modalContent={this.state.modalContent} handleInputChange={this.handleInputChange}/>
+                    <ChoiceData modalContent={this.state.modalContent} handleInputChange={this.handleInputChange}/>
+                    <AccessData modalContent={this.state.modalContent} handleInputChange={this.handleInputChange}/>
+                    <SecurityData modalContent={this.state.modalContent} handleInputChange={this.handleInputChange}/>
+                    <EnforcementData modalContent={this.state.modalContent} handleInputChange={this.handleInputChange}/>
                     
                     <div style={{textAlign: 'center', marginTop: '40px'}}>
                         <span onClick={this.handleStep} 
@@ -125,45 +163,5 @@ export default class CreatePolicyContainer extends Component {
     }
 }
 
-// const form = document.querySelector('form')
-// const input = document.querySelector('#new_domain')
-// const verifyButton = document.querySelector('svg#verify_button')
-// const verifyResult = document.querySelector('#verify_result')
-
-// // for tabbing through the multi form when creating a new policy...
-// localStorage.setItem('currentFormTab', 'core_form')
-
-// form.addEventListener('submit', postNewWebsite)
-// verifyButton.addEventListener('click', verifyDomain)
-
-// function postNewWebsite(){
-//     event.preventDefault()
-//     const configPostObj = {
-//             method: "POST",
-//             headers: {
-//                 "Accept": "application/json",
-//                 "Content-Type": "application/json"},
-//             body: JSON.stringify(formValues())
-//           }
-//     fetch(`https://datatrust-api.herokuapp.com/websites`, configPostObj)
-//         .then(response => response.json())
-//         .then(json => console.log(json))
-// }
-
-// // {window.location.href = "policies.html"}
-
-// function formValues(){
-//     let obj = {}
-//     let textArray = Array.from(modal.querySelectorAll('input[type=text]'))
-//     textArray.map(item => {
-//         obj[`${item.name}`] = `${item.value}`
-//     })
-//     let checkboxArray = Array.from(modal.querySelectorAll('input[type=checkbox]'))
-//     checkboxArray.map(item => {
-//         obj[`${item.name}`] = `${item.checked}`
-//     })
-//     fullObj = Object.assign({user_id: localStorage.userId}, obj)
-//     return fullObj
-// }
 
 
