@@ -91,9 +91,9 @@ export default class CreatePolicyContainer extends Component {
                 body: JSON.stringify(this.state)
                 }
 
-        fetch(`http://localhost:3000/websites`, postObj)
+        fetch(`https://datatrust-api.herokuapp.com/websites`, postObj)
             .then(r => r.json())
-            .then(console.log)
+            .then(r => this.handleSuccessfulSubmit(r))
     }
 
     render() {
@@ -160,6 +160,41 @@ export default class CreatePolicyContainer extends Component {
                 </div>
             </>
         )
+    }
+
+    handleSuccessfulSubmit = () => {
+        this.props.handleToggleModal()
+        this.setState({
+            modalContent: 'core',
+            domain: '',
+            verifiedResult: '',
+                company_name: '',
+                cookies: null,
+                cookies_required: null,
+                collect_user_data: null,
+                pp_url: '',
+                use_for_site_improvement: null,
+                use_for_data_analysis: null,
+                use_for_profit: null,
+                collect_by_asking: null,
+                collect_by_partners: null,
+                collect_by_tracking: null,
+                update_data: null,
+                delete_data: null,
+                opt_in: null,
+                opt_out: null,
+                can_view_all_data: null,
+                can_dispute_accuracy: null,
+                efficient_dispute_process: null,
+                dispute_policy: '',
+                encrypted: null,
+                quality_measures: '',
+                additional_security: '',
+                self_regulation: null,
+                privacy_seal: null,
+                privacy_seal_vendor: '',
+                user_id: localStorage.userId
+        })
     }
 }
 
