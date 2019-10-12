@@ -17,23 +17,44 @@
 
 .logo {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .logo img {
     width: 48px;
 }
 
-.logo span {
-    font-size: 1.8em;
-}
-
 .logo:hover {
     color: black;
 }
 
+.logo div {
+    text-align: left;
+    margin-top: 3px;
+}
+
 #name-data {
     font-weight: bold;
+    font-size: 1.8em;
+}
+#name-trust {
+    font-size: 1.8em;
+}
+
+.logo-show {
+    transition: opacity 0.5s ease-in;
+    font-size: 10px;
+    font-style: italic;
+    opacity: 1;
+    color:grey;
+}
+
+.logo-hide {
+    transition: opacity 0.5s ease-out;
+    font-size: 10px;
+    font-style: italic;
+    opacity: 0;
+    color:grey;
 }
 
 input.auth-input {
