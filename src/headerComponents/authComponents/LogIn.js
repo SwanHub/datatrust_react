@@ -108,8 +108,8 @@ export default class LogIn extends Component {
             return(
                 <form onSubmit={this.handleLoginSubmit}>
                     <input className="auth-input" type="text" placeholder="username" onChange={this.handleLoginUserChange}/> 
-                    <input className="auth-input" type="text" placeholder="password" onChange={this.handleLoginPswrdChange}/> 
-                    <input type="submit" value="Submit"/> 
+                    <input className="auth-input" type="password" placeholder="password" onChange={this.handleLoginPswrdChange}/> 
+                    <input className="submit" type="submit" value="Submit"/> 
                     <span className="auth-hamburger" onClick={this.handleBackClick}>|||</span>
                 </form>
             )
@@ -118,9 +118,9 @@ export default class LogIn extends Component {
                 <form onSubmit={this.handleNewUserSubmit}>
                     <input className="auth-input" type="text" name="username" placeholder="username" onChange={this.handleNewUsernameChange}/> 
                     <input className="auth-input" type="text" name="email" placeholder="email" onChange={this.handleNewEmailChange}/> 
-                    <input className="auth-input" type="text" id="password" placeholder="password" onChange={this.handleNewPasswordChange}/> 
-                    <input className="auth-input" type="text" placeholder="confirm"/> 
-                    <input type="submit" value="Submit"/> 
+                    <input className="auth-input" type="password" id="password" placeholder="password" onChange={this.handleNewPasswordChange}/> 
+                    <input className="auth-input" type="password" placeholder="confirm"/> 
+                    <input className="submit" type="submit" value="Submit"/> 
                     <span className="auth-hamburger" onClick={this.handleBackClick}>||||</span>
                 </form>
             )

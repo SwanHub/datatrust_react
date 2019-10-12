@@ -17,7 +17,7 @@ export default function LogOut(props) {
         <div>
             <button className="yellow-back" onClick={handleNewPolicyClick}>Create Policy</button>
             <button className="yellow-back" onClick={handleUserPoliciesClick}>My Policies</button>
-            <button onClick={handleClick}>LogOut</button>
+            <button onClick={handleClick}>Log Out</button>
         </div>
     )
 }

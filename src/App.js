@@ -23,7 +23,8 @@ class App extends Component {
       view: 'search',
       username: localStorage.username,
       userId: localStorage.userId,
-      modalActive: false
+      modalActive: false, 
+      error:false
   }
 
   handleToggleModal = () => {
@@ -40,17 +41,19 @@ class App extends Component {
 
   handleSearch = () => {
     const foundWebsite = this.state.websites.find(w => {
-      if (!!w.website.company_name){
         return w.website.company_name.toLowerCase().includes(this.state.searchInput.toLowerCase())
-      } else {
-        return null 
-      }
     })
 
-    this.setState({
-      currentWebsite: foundWebsite,
-      view: 'policy'
-    })
+    if (!!foundWebsite){
+      this.setState({
+        currentWebsite: foundWebsite,
+        view: 'policy'
+      })
+    } else {
+      this.setState({
+        error: true
+      })
+    }
   }
 
   showMyPolicies = () => {
@@ -61,7 +64,7 @@ class App extends Component {
 
   myPoliciesList = () => {
     return this.state.websites.filter(website => {
-      return website.website.user_id === this.state.userId
+      return website.website.user_id === parseInt(this.state.userId)
     })
   }
 
@@ -102,7 +105,9 @@ class App extends Component {
 
   resetMain = () => {
     this.setState({
-      view: 'search'
+      view: 'search',
+      error:false, 
+      searchInput: ''
     })
   }
 
@@ -145,7 +150,8 @@ class App extends Component {
                               myPoliciesList={this.myPoliciesList}  
                               showPolicy={this.showPolicy}  
                               websites={this.state.websites} 
-                              browsePolicies={this.browsePolicies}                    
+                              browsePolicies={this.browsePolicies} 
+                              error={this.state.error}                   
                             />
                           </div>
                       </>

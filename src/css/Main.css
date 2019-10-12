@@ -31,7 +31,6 @@ input.submit:hover{
     width: 80%;
     padding:10px;
     margin: 80px 0px 0px 0px;
-    background-color: rgba(255,255,255,0);
     border-bottom: 8px solid rgba(66,133,244, 0.5);
     font-size:60px;
     caret-color: rgba(52,107,168, 0.8);
@@ -49,7 +48,7 @@ input.submit:hover{
     font-family: 'Georgia', sans-serif;
 }
 .main-content {
-    padding-top: 112px;
+    padding-top: 80px;
     text-align:center;
     width: 80%;
     margin:auto;
@@ -77,6 +76,12 @@ p.search-subtext {
     font-style: italic;
     color:rgb(0, 0, 0, 0.2);
 }
+p.error { 
+    font-size: 1.1em;
+    font-style: italic;
+    color:black;
+    background-color: rgba(244,160,0, 0.5);
+}
 
   /* policy show view */
 
@@ -97,13 +102,11 @@ p.search-subtext {
     border-radius: 10px;
     border: 1px solid rgba(102, 102, 102, 0.3);
     box-shadow: 2px 10px 10px rgb(200, 200, 200);
+    transition: width 1s ease-in-out;
 }
 
 .policy:hover{
     width: 35%;
-    -webkit-transition: width 500ms linear;
-    -ms-transition: width 500ms linear;
-    transition: width 500ms linear;
     background-color: rgba(66,133,244, 0.1);
     color: black;
 }
@@ -117,55 +120,51 @@ p.search-subtext {
     margin: 1em;
     color: rgb(102, 102, 102)
 }
+.bold {
+    color:black;
+}
 
-  /* .policy_area svg {
-    border:none;
-    fill: rgb(0, 0, 0, 0.2);
-    padding:0px;
-    margin:0px;
-    width:22px;
-  } */
+.list-view-policy {
+    border-bottom: 1px solid lightgrey;
+    cursor: pointer;
+    width: 700px;
+    margin:auto;
+    margin-top:15px;
+}
 
- /* .policy_notice svg{
-    fill: green;
-} */
+.list-view-policy:hover {
+    transform: scale(1.03);
+    font-weight: bold;
+}
 
-/* used for info container when no site "includes?" a search */
-  /* .policy_notice{
-    margin: 10px;
-    width: 25%;
-    color: rgb(102,102,102);
+.browse-filter {
+    border-bottom: 2px solid rgba(66,133,244, 0.5);
+    font-size: 20px;
     cursor:pointer;
-    border-radius: 10px;
-    border: 1px solid rgba(102, 102, 102, 0.3);
-    box-shadow: 2px 10px 10px rgb(200, 200, 200);
-  } */
+}
 
-.my-policies{
-    width: 60%;
-    text-align: left;
-    padding: 10px;
+.browse-filter:hover {
+    border-bottom: 2px solid rgba(66,133,244, 0.8);
+}
+
+.flag-endorse-icon {
+    width:18px;
+}
+
+.flag-endorse-count {
+    font-size: 20px;
+}
+
+.flag-zone {
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
     margin:auto;
 }
- 
-.my-policies p{
-    background-color: rgb(232, 242, 255);
-    border: 1px solid white;
-    padding: 5px 10px 5px;
-    cursor:pointer;
-    display:flex;
-    justify-content: space-between;
-    transition: all .2s ease-in-out;
-}
 
-.my-policies p:hover{
-    background-image: linear-gradient(rgb(66,133,244,0.3), rgb(66,133,244,0.5));
-    -webkit-transition: background-image 500ms linear;
-    -ms-transition: background-image 500ms linear;
-    transition: background-image 500ms linear;
-    transform: scale(1.01);
-}
 
-.my-policies p span{
-    display: inline-block;
-}
+
+
+/* -webkit-transition: background-image 500ms linear;
+-ms-transition: background-image 500ms linear;
+transition: background-image 500ms linear; */

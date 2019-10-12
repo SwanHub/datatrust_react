@@ -1,10 +1,9 @@
 import React from 'react'
-// import { tsPropertySignature } from '@babel/types'
 
 export default function MyPoliciesCard(props) {
     return (
-        <p>
-           {props.website.company_name} 
+        <p className="list-view-policy" onClick={() => props.showPolicy(props.website)}>
+           {props.website.website.company_name} 
         </p>
     )
 }

@@ -16,7 +16,9 @@ export default function Search(props) {
                     autoComplete="off"
                     id="main-searchbar"
                     />
-                    <p className="search-subtext">...by company or domain</p>
+                    {props.error 
+                        ? <p className="error">Couldn't find a match... please browse policies below</p>
+                        : <p className="search-subtext">...by company or domain</p>}
             <a href="https://chrome.google.com/webstore/category/extensions"
                target="_blank" className="add-extension">Get Extension</a><br />
             <button onClick={() => props.browsePolicies()}>Browse Policies</button>

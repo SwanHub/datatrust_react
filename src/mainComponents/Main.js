@@ -11,11 +11,12 @@ export default function Main(props) {
             handleInputChange={props.handleInputChange}
             handleSearch={props.handleSearch}
             browsePolicies={props.browsePolicies}
+            error={props.error}
             />
         case 'policy':
           return <PoliciesContainer website={props.website}/>;
         case 'myPolicies':
-          return  <MyPoliciesContainer myPoliciesList={props.myPoliciesList}/>;
+          return  <MyPoliciesContainer myPoliciesList={props.myPoliciesList} showPolicy={props.showPolicy}/>;
         case 'browse':
           return  <AllPolicies websites={props.websites} showPolicy={props.showPolicy}/>;
         default:
