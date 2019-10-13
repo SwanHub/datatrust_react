@@ -166,6 +166,30 @@ p.error {
     text-decoration:none;
 }
 
-/* -webkit-transition: background-image 500ms linear;
--ms-transition: background-image 500ms linear;
-transition: background-image 500ms linear; */
+.main-page-filter-box {
+    position:absolute;
+    margin-left: auto;
+    margin-left: auto;
+    left: 18%;
+    right: 18%;
+    padding: 14px 0px;
+    border-bottom: 1px solid rgba(21,21,21,0.1);
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-image: radial-gradient(#fff, rgba(240, 248, 255, 0.1));
+}
+
+.main-page-search-result {
+    color: rgba(21,21,21,0.8);
+    font-size: 18px;
+    border: 2px solid transparent;
+    padding:2px;
+    margin: 10px 1px;
+    cursor: pointer;
+}
+
+.main-page-search-result:hover {
+    font-weight: bolder;
+    border-bottom:2px solid rgba(66,133,244,0.7);
+    background-color: rgba(66,133,244,0.1);
+}

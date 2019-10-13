@@ -51,7 +51,8 @@ class App extends Component {
       })
     } else {
       this.setState({
-        error: true
+        error: true,
+        searchInput: ''
       })
     }
   }

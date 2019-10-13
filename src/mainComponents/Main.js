@@ -12,6 +12,8 @@ export default function Main(props) {
             handleSearch={props.handleSearch}
             browsePolicies={props.browsePolicies}
             error={props.error}
+            websites={props.websites}
+            showPolicy={props.showPolicy}
             />
         case 'policy':
           return <PoliciesContainer website={props.website}/>;
