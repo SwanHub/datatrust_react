@@ -3,7 +3,6 @@ import NoticePolicy from './NoticePolicy'
 import ChoicePolicy from './ChoicePolicy'
 import AccessPolicy from './AccessPolicy'
 import SecurityPolicy from './SecurityPolicy'
-import { thisExpression } from '@babel/types'
 
 
 export default class PoliciesContainer extends React.Component {
@@ -88,6 +87,8 @@ export default class PoliciesContainer extends React.Component {
                 fetch(`https://datatrust-api.herokuapp.com/endorsement`, configPostObj)
                     .then(response => response.json())
                     .then(json => {console.log(json)})
+            } else {
+                this.handleActionLimit()
             }
         } else {
             this.handleKickback()
