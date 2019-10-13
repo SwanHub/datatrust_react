@@ -17,7 +17,7 @@ export default function PoliciesContainer(props) {
     
     return (
         <div>
-        <h2>{props.website.website.company_name}</h2>
+        <a className="pp-link" target="_blank" href={props.website.website.pp_url}><h2>{props.website.website.company_name}</h2></a>
         <div className="flag-zone">
             <div>
                 <img className="flag-endorse-icon" src={require('../../images/thumbsdown-48.png')}/>

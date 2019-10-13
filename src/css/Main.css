@@ -161,9 +161,10 @@ p.error {
     justify-content: space-around;
     margin:auto;
 }
-
-
-
+.pp-link {
+    color:black;
+    text-decoration:none;
+}
 
 /* -webkit-transition: background-image 500ms linear;
 -ms-transition: background-image 500ms linear;
