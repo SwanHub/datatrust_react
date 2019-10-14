@@ -22,6 +22,8 @@ export default function Search(props) {
         })
     }
 
+    const extensionUrl = 'https://chrome.google.com/webstore/detail/datatrust/dbdeockjfjihlblhpbdbpadnmkhancmk'
+
     const handleKeyDown = (event) => {
         return event.key === "Enter" ? props.handleSearch() : null
     }
@@ -55,7 +57,7 @@ export default function Search(props) {
                         ? <p className="error">Couldn't find a match... please browse policies below</p>
                         : <p className="search-subtext">...by company or domain</p>}
                 <a 
-                    href="https://chrome.google.com/webstore/category/extensions"
+                    href={extensionUrl}
                     target="_blank" 
                     className="add-extension">Get Extension</a><br />
                 <button onClick={() => props.browsePolicies()}>Browse Policies</button>
